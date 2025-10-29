@@ -16,13 +16,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* DEV-INJECT-START */}
-        {process.env.NODE_ENV === 'development' && (
-          <script src="https://testagent.xspaceagi.com/sdk/dev-monitor.js?t=1761713215359"></script>
-        )}
-        {/* DEV-INJECT-END */}
-      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
