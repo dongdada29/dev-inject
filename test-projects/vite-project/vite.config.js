@@ -1,24 +1,25 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    // dev-inject-plugin
-{
-  name: 'dev-inject-plugin',
-  transformIndexHtml(html) {
-    if (process.env.NODE_ENV === 'development') {
-      return html.replace(
-        '</head>',
-        `    <!-- dev-inject script -->
-    <script src="https://testagent.xspaceagi.com/sdk/dev-monitor.js"></script></head>`
-      );
-    }
-    return html;
-  }
-}
+    // <!-- DEV-INJECT-START -->
+    (function() {
+      return {
+        name: 'dev-inject',
+        transformIndexHtml(html) {
+          if (process.env.NODE_ENV === 'development') {
+            return html.replace(
+              '</head>',
+              `<script src="https://testagent.xspaceagi.com/sdk/dev-monitor.js?t=1761713676983"></script>\n</head>`
+            );
+          }
+          return html;
+        }
+      };
+    })()
+    // <!-- DEV-INJECT-END -->
   ],
   server: {
     port: 3001
