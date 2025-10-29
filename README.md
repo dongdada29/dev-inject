@@ -198,6 +198,27 @@ dev-inject/
 - ✅ React、Vue、Angular、Next.js 等
 - ✅ Vite、Webpack、Create React App 等构建工具
 
+## 📦 发布配置
+
+本项目已配置 npm publish 时仅包含必要的文件：
+
+**包含的文件：**
+- ✅ `bin/` - CLI 可执行文件
+- ✅ `lib/` - 核心库文件
+- ✅ `scripts/` - 监控脚本
+- ✅ `*.md` - 文档文件
+- ✅ `LICENSE` - 许可证
+
+**排除的文件：**
+- ❌ `test/` - 测试文件
+- ❌ `test-projects/` - 测试项目
+- ❌ 所有 `*.test.js` 文件
+- ❌ 测试和演示 HTML 文件
+- ❌ 日志和缓存文件
+- ❌ 开发工具配置
+
+完整配置请查看 `package.json` 的 `files` 字段和 `.npmignore` 文件。
+
 ## 注意事项
 
 1. **绝对路径**：确保静态文件服务器可以访问该路径

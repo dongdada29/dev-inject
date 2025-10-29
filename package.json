@@ -1,5 +1,5 @@
 {
-  "name": "dev-inject",
+  "name": "@xagi/dev-inject",
   "version": "1.0.0",
   "description": "开发环境脚本注入工具 - 支持远程URL和本地路径",
   "type": "module",
@@ -8,9 +8,11 @@
     "dev-inject": "./bin/index.js"
   },
   "files": [
-    "bin",
-    "lib",
-    "*.md"
+    "bin/",
+    "lib/",
+    "scripts/",
+    "*.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "echo 'No build needed for Node.js CLI'",
@@ -24,7 +26,7 @@
     "remote-script",
     "local-script"
   ],
-  "author": "Your Name",
+  "author": "dongdada29",
   "license": "MIT",
   "engines": {
     "node": ">=14.0.0"
