@@ -1,0 +1,17 @@
+{
+  "name": "html-static-test",
+  "version": "1.0.0",
+  "description": "纯 HTML 静态项目测试 - dev-inject",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 3002",
+    "serve": "npx serve -s . -p 3002"
+  },
+  "keywords": [
+    "html",
+    "test",
+    "dev-inject"
+  ],
+  "author": "",
+  "license": "MIT"
+}

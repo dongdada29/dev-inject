@@ -15,6 +15,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+      {/* dev-inject script */}
+      {process.env.NODE_ENV === 'development' && (
+        <script src="https://testagent.xspaceagi.com/sdk/dev-monitor.js" />
+      )}
     <html lang="en">
       <body className={inter.className}>{children}</body>
     </html>
