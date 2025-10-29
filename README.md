@@ -24,17 +24,20 @@
 
 ## 安装
 
-本地开发（推荐）：
+使用 npx（推荐）：
 
 ```bash
-cd dev-inject
-npm link
+# 查看帮助信息
+npx @xagi/dev-inject --help
+
+# 查看版本信息
+npx @xagi/dev-inject --version
 ```
 
-或者直接使用 npx：
+或使用 pnpm dlx：
 
 ```bash
-npx dev-inject --help
+pnpm dlx @xagi/dev-inject --help
 ```
 
 ## 🚀 快速开始
@@ -42,42 +45,43 @@ npx dev-inject --help
 ### 框架感知注入（推荐）
 
 ```bash
-# Vite 项目
-cd your-vite-project
-npx dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
+# 使用默认脚本地址 (/sdk/dev-monitor.js)
+npx @xagi/dev-inject install --framework
 
-# Next.js 项目
-cd your-next-project  
-npx dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
+# 或指定自定义地址
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
+
+# 使用 pnpm
+pnpm dlx @xagi/dev-inject install --framework
 
 # 查看检测到的项目类型
-npx dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework --verbose
+npx @xagi/dev-inject install --framework --verbose
 ```
 
 ### 传统 HTML 注入
 
 ```bash
 # 注入远程脚本
-npx dev-inject install --remote=http://localhost:9000/dev-monitor.js
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js
 
 # 注入本地脚本
-npx dev-inject install --remote=/scripts/dev-monitor.js
+npx @xagi/dev-inject install --remote=/scripts/dev-monitor.js
 
 # 指定特定文件
-npx dev-inject install --remote=/scripts/monitor.js --file=./public/index.html
+npx @xagi/dev-inject install --remote=/scripts/monitor.js --file=./public/index.html
 ```
 
 ### 预览和卸载
 
 ```bash
 # 预览将要执行的操作
-npx dev-inject install --remote=/scripts/monitor.js --framework --dry-run
+npx @xagi/dev-inject install --remote=/scripts/monitor.js --framework --dry-run
 
 # 移除框架注入
-npx dev-inject uninstall --framework
+npx @xagi/dev-inject uninstall --framework
 
 # 移除传统注入
-npx dev-inject uninstall
+npx @xagi/dev-inject uninstall
 ```
 
 ## 📋 支持的脚本格式
@@ -98,7 +102,7 @@ npx dev-inject uninstall
 
 | 选项 | 描述 | 示例 |
 |------|------|------|
-| `--remote` | 脚本地址（必需） | `--remote=/scripts/dev-monitor.js` |
+| `--remote` | 脚本地址（可选，默认值: /sdk/dev-monitor.js） | `--remote=/scripts/dev-monitor.js` |
 | `--framework, -f` | 使用框架感知注入 | `--framework` |
 | `--file` | 指定 HTML 文件 | `--file=./public/index.html` |
 | `--dry-run` | 预览模式 | `--dry-run` |
@@ -161,7 +165,10 @@ DevMonitor.clearData();    // 清除监控数据
 # 进入项目目录
 cd dev-inject
 
-# 链接到全局（用于测试）
+# 安装依赖
+npm install
+
+# 链接到全局（用于本地测试）
 npm link
 
 # 测试帮助信息
@@ -172,6 +179,19 @@ dev-inject install --remote=/scripts/dev-monitor.js --dry-run
 
 # 取消链接
 npm unlink
+```
+
+## 📦 发布到 npm
+
+```bash
+# 确保你已经登录 npm
+npm login
+
+# 发布到 npm
+npm publish
+
+# 发布后验证
+npx @xagi/dev-inject --version
 ```
 
 ## 项目结构

@@ -1,5 +1,18 @@
 # 使用示例
 
+## 安装方式
+
+```bash
+# 使用默认脚本地址 (/sdk/dev-monitor.js)
+npx @xagi/dev-inject install
+
+# 使用自定义地址
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js
+
+# 使用 pnpm dlx
+pnpm dlx @xagi/dev-inject install
+```
+
 ## 1. 本地开发环境监控
 
 将监控脚本复制到你的项目静态资源目录：
@@ -13,10 +26,10 @@ cp dev-inject/scripts/dev-monitor.js public/scripts/
 
 ```bash
 # 注入本地监控脚本
-npx dev-inject install --remote=/scripts/dev-monitor.js
+npx @xagi/dev-inject install --remote=/scripts/dev-monitor.js
 
 # 或者指定特定 HTML 文件
-npx dev-inject install --remote=/scripts/dev-monitor.js --file=./public/index.html
+npx @xagi/dev-inject install --remote=/scripts/dev-monitor.js --file=./public/index.html
 ```
 
 ## 2. 远程开发服务器监控
@@ -25,27 +38,39 @@ npx dev-inject install --remote=/scripts/dev-monitor.js --file=./public/index.ht
 
 ```bash
 # 注入远程脚本
-npx dev-inject install --remote=http://localhost:9000/dev-monitor.js
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js
+
+# 或使用 pnpm
+pnpm dlx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js
 ```
 
-## 3. 在 React/Vite 项目中使用
+## 3. 在 React/Vite/Next.js 项目中使用（框架感知模式）
 
 ```bash
-# 在 Vite 项目中
-npx dev-inject install --remote=/scripts/dev-monitor.js --file=./index.html
+# Vite 项目 - 使用框架感知注入（推荐）
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
 
-# 在 Create React App 项目中
-npx dev-inject install --remote=/scripts/dev-monitor.js --file=./public/index.html
+# Next.js App Router 项目
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
+
+# Next.js Pages Router 项目
+npx @xagi/dev-inject install --remote=/scripts/dev-monitor.js --framework
+
+# Create React App 项目
+npx @xagi/dev-inject install --remote=/scripts/dev-monitor.js --framework
 ```
 
 ## 4. 开发完成后清理
 
 ```bash
-# 移除所有注入的脚本
-npx dev-inject uninstall
+# 移除框架注入
+npx @xagi/dev-inject uninstall --framework
+
+# 移除传统注入
+npx @xagi/dev-inject uninstall
 
 # 只移除特定文件的注入脚本
-npx dev-inject uninstall --file=./index.html
+pnpm dlx @xagi/dev-inject uninstall --file=./index.html
 ```
 
 ## 5. 预览模式
@@ -53,7 +78,7 @@ npx dev-inject uninstall --file=./index.html
 在实际注入前，可以先预览将要执行的操作：
 
 ```bash
-npx dev-inject install --remote=/scripts/dev-monitor.js --dry-run --verbose
+npx @xagi/dev-inject install --remote=/scripts/dev-monitor.js --dry-run --verbose
 ```
 
 ## 监控面板使用
@@ -80,23 +105,35 @@ DevMonitor.setLogLevel('debug')  // debug, info, warn, error
 ## 完整工作流示例
 
 ```bash
-# 1. 复制监控脚本到项目中
-cp dev-inject/scripts/dev-monitor.js my-project/public/scripts/
-
-# 2. 进入项目目录
+# 1. 进入项目目录
 cd my-project
 
-# 3. 预览注入操作
-npx dev-inject install --remote=/scripts/dev-monitor.js --dry-run
+# 2. 预览注入操作（框架感知模式）
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework --dry-run
 
-# 4. 执行注入
-npx dev-inject install --remote=/scripts/dev-monitor.js
+# 3. 执行注入（框架感知模式）
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
 
-# 5. 启动开发服务器
+# 4. 启动开发服务器
 npm run dev
 
-# 6. 在浏览器中测试功能，打开控制台使用 DevMonitor API
+# 5. 在浏览器中测试功能，打开控制台使用 DevMonitor API
 
-# 7. 开发完成后清理注入
-npx dev-inject uninstall
+# 6. 开发完成后清理注入
+pnpm dlx @xagi/dev-inject uninstall --framework
+```
+
+## 快速启动示例
+
+使用远程监控脚本（推荐）：
+
+```bash
+# 框架感知注入（自动检测最佳注入方式）
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
+
+# 或使用 pnpm
+pnpm dlx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
+
+# 卸载
+npx @xagi/dev-inject uninstall --framework
 ```
