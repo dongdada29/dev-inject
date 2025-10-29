@@ -1,6 +1,6 @@
 {
   "name": "@xagi/dev-inject",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "框架感知的开发环境脚本注入工具 - 支持 Vite、Next.js、React 等现代框架的智能脚本注入",
   "type": "module",
   "main": "lib/index.js",
