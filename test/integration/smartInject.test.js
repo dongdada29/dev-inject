@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // 导入要测试的模块
-import { smartInject, removeInjection } from '../lib/smart-inject.js';
+import { smartInject } from '../../lib/framework-inject.js';
 
 describe('框架注入集成测试', () => {
   const testDir = join(__dirname, 'fixtures');

@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // 导入要测试的模块
-import { detectProjectType } from '../lib/smart-inject.js';
+import { detectProjectType } from '../../lib/smart-inject.js';
 
 describe('框架检测功能', () => {
   const testDir = join(__dirname, 'fixtures');

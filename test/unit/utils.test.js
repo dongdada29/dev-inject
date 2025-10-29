@@ -15,7 +15,7 @@ import {
   lookupFiles,
   injectScriptToHtml,
   removeInjectedScripts
-} from '../lib/utils.js';
+} from '../../lib/utils.js';
 
 describe('工具函数', () => {
   const testDir = join(__dirname, 'fixtures');

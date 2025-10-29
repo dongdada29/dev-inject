@@ -2,7 +2,7 @@ import { test, describe } from 'node:test';
 import assert from 'node:assert';
 
 // 导入要测试的模块
-import { parseArgs } from '../lib/args.js';
+import { parseArgs } from '../../lib/args.js';
 
 describe('CLI 参数解析', () => {
   describe('基本命令解析', () => {
