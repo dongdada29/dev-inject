@@ -32,6 +32,9 @@ npx @xagi/dev-inject --help
 
 # 查看版本信息
 npx @xagi/dev-inject --version
+
+# 静默安装（自动确认，无需交互）-y 选项
+npx -y @xagi/dev-inject install --framework
 ```
 
 或使用 pnpm dlx：
@@ -45,6 +48,9 @@ pnpm dlx @xagi/dev-inject --help
 ### 框架感知注入（推荐）
 
 ```bash
+# 静默安装（推荐，无需确认）
+npx -y @xagi/dev-inject install --framework
+
 # 使用默认脚本地址 (/sdk/dev-monitor.js)
 npx @xagi/dev-inject install --framework
 

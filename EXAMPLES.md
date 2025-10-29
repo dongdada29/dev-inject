@@ -3,14 +3,17 @@
 ## 安装方式
 
 ```bash
+# 静默安装（推荐，自动确认，无需交互）
+npx -y @xagi/dev-inject install --framework
+
 # 使用默认脚本地址 (/sdk/dev-monitor.js)
-npx @xagi/dev-inject install
+npx @xagi/dev-inject install --framework
 
 # 使用自定义地址
-npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js
+npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
 
 # 使用 pnpm dlx
-pnpm dlx @xagi/dev-inject install
+pnpm dlx @xagi/dev-inject install --framework
 ```
 
 ## 1. 本地开发环境监控
@@ -112,6 +115,10 @@ cd my-project
 npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework --dry-run
 
 # 3. 执行注入（框架感知模式）
+# 方式一：静默安装（推荐，一键完成）
+npx -y @xagi/dev-inject install --framework
+
+# 方式二：标准安装
 npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
 
 # 4. 启动开发服务器
@@ -120,7 +127,7 @@ npm run dev
 # 5. 在浏览器中测试功能，打开控制台使用 DevMonitor API
 
 # 6. 开发完成后清理注入
-pnpm dlx @xagi/dev-inject uninstall --framework
+npx @xagi/dev-inject uninstall --framework
 ```
 
 ## 快速启动示例
@@ -128,6 +135,9 @@ pnpm dlx @xagi/dev-inject uninstall --framework
 使用远程监控脚本（推荐）：
 
 ```bash
+# 静默安装（最推荐，一键完成）
+npx -y @xagi/dev-inject install --framework
+
 # 框架感知注入（自动检测最佳注入方式）
 npx @xagi/dev-inject install --remote=http://localhost:9000/dev-monitor.js --framework
 
