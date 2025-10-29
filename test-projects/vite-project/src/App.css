@@ -1,0 +1,119 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 1.2rem;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button.danger {
+  background: #f56565;
+  color: white;
+}
+
+button.danger:hover {
+  background: #e53e3e;
+}
+
+button.secondary {
+  background: #718096;
+  color: white;
+}
+
+button.secondary:hover {
+  background: #4a5568;
+}
+
+.error-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.error-item {
+  background: rgba(245, 101, 101, 0.2);
+  border-left: 3px solid #f56565;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+  text-align: left;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.no-errors {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+ul {
+  text-align: left;
+}
+
+code {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}

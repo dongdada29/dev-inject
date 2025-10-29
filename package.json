@@ -1,0 +1,40 @@
+{
+  "name": "dev-inject",
+  "version": "1.0.0",
+  "description": "开发环境脚本注入工具 - 支持远程URL和本地路径",
+  "type": "module",
+  "main": "lib/index.js",
+  "bin": {
+    "dev-inject": "./bin/index.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "*.md"
+  ],
+  "scripts": {
+    "build": "echo 'No build needed for Node.js CLI'",
+    "prepare": "chmod +x bin/index.js"
+  },
+  "keywords": [
+    "development",
+    "script-injection",
+    "html",
+    "cli",
+    "remote-script",
+    "local-script"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dongdada29/dev-inject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dongdada29/dev-inject/issues"
+  },
+  "homepage": "https://github.com/dongdada29/dev-inject#readme"
+}
