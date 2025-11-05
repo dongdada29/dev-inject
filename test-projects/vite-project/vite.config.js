@@ -18,7 +18,7 @@ export default defineConfig({
         const script = document.createElement('script');
         script.src = remote + separator + 't=' + Date.now();
         script.dataset.id = 'dev-inject-monitor-script';
-        script.async = true;
+        script.defer = true;
         // 防止重复注入
         if (!document.querySelector('[data-id="dev-inject-monitor-script"]')) {
           document.head.appendChild(script);

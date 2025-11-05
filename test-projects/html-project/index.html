@@ -5,54 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML 静态项目 - dev-inject 测试</title>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  <!-- DEV-INJECT-START -->
-  <script>
-    if (process.env.NODE_ENV === 'development' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+<!-- DEV-INJECT-START -->
+  <script data-id="dev-inject-monitor">
+    (function() {
+      const remote = "https://testagent.xspaceagi.com/sdk/dev-monitor.js";
+      const separator = remote.includes('?') ? '&' : '?';
       const script = document.createElement('script');
-      script.src = 'https://testagent.xspaceagi.com/sdk/dev-monitor.js?t=1762332186949';
-      document.head.appendChild(script);
-    }
-  </script> <!-- injected by dev-inject -->
-  <!-- DEV-INJECT-END -->
+      script.src = remote + separator + 't=' + Date.now();
+      script.dataset.id = 'dev-inject-monitor-script';
+      script.defer = true;
+      // 防止重复注入
+      if (!document.querySelector('[data-id="dev-inject-monitor-script"]')) {
+        document.head.appendChild(script);
+      }
+    })();
+  </script>
+<!-- DEV-INJECT-END -->
 </head>
 
 <body>
