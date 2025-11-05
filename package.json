@@ -16,7 +16,15 @@
   ],
   "scripts": {
     "build": "echo 'No build needed for Node.js CLI'",
-    "prepare": "chmod +x bin/index.js"
+    "prepare": "chmod +x bin/index.js",
+    "test": "node scripts/test-projects.js all",
+    "test:all": "node scripts/test-projects.js all",
+    "test:install": "node scripts/test-projects.js install",
+    "test:uninstall": "node scripts/test-projects.js uninstall",
+    "test:html": "cd test-projects/html-project && node ../../bin/index.js install --remote=/sdk/dev-monitor.js --framework && node ../../bin/index.js uninstall --framework",
+    "test:vite": "cd test-projects/vite-project && node ../../bin/index.js install --remote=/sdk/dev-monitor.js --framework && node ../../bin/index.js uninstall --framework",
+    "test:next-pages": "cd test-projects/next-pages-project && node ../../bin/index.js install --remote=/sdk/dev-monitor.js --framework && node ../../bin/index.js uninstall --framework",
+    "test:next-app": "cd test-projects/next-app-project && node ../../bin/index.js install --remote=/sdk/dev-monitor.js --framework && node ../../bin/index.js uninstall --framework"
   },
   "keywords": [
     "development",

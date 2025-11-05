@@ -5,6 +5,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML 静态项目 - dev-inject 测试</title>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- DEV-INJECT-START -->
+  <script>
+    if (process.env.NODE_ENV === 'development' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      const script = document.createElement('script');
+      script.src = 'https://testagent.xspaceagi.com/sdk/dev-monitor.js?t=1762332186949';
+      document.head.appendChild(script);
+    }
+  </script> <!-- injected by dev-inject -->
+  <!-- DEV-INJECT-END -->
 </head>
 
 <body>
